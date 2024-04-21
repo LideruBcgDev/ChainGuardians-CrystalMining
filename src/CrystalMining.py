@@ -167,7 +167,7 @@ class CrystalMining():
 
             except Exception as e:
                 print(f'{self.LogTime()} {address_index}:{walletAddr}：{e}')
-                print(f'{privateKey}')
+                # print(f'{privateKey}')
 
                 # # airdrop枯渇したら終了
                 # if str(e) == "{'code': -32000, 'message': 'execution reverted: COLOSSEUM_AIRDROP_AMOUNT_EXCEEDS_LIMIT'}":
