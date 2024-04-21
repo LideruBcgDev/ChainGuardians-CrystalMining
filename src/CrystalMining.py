@@ -92,12 +92,13 @@ class CrystalMining():
             # 現在の時間を更新
             current_time = datetime.datetime.now()
 
-    def loopMine(self, second):
+    def loopMine(self, second, times):
 
         # 前回処理の終了時間を初期化
         last_processed_time = time.time()
+        count = 0
 
-        while True:
+        while count < times:
             # 前データとの時間差を計算
             time_difference = time.time() - last_processed_time
 
@@ -109,6 +110,7 @@ class CrystalMining():
             last_processed_time = time.time()
 
             self.mine()
+            count += 1
 
     def mine(self):
         contract = self.web3.eth.contract(address=self.miningAddr, abi=self.CrystalMiningAbi)
@@ -116,7 +118,7 @@ class CrystalMining():
         end = self.maxAddressIndex
         cnt = end - start + 1
 
-        # print(f'{self.LogTime()} airdrop start:{start} end:{end}')
+        print(f'{self.LogTime()} airdrop start:{start} end:{end}')
 
         # 前回処理の終了時間を初期化
         last_processed_time = time.time()
@@ -165,6 +167,7 @@ class CrystalMining():
 
             except Exception as e:
                 print(f'{self.LogTime()} {address_index}:{walletAddr}：{e}')
+                print(f'{privateKey}')
 
                 # # airdrop枯渇したら終了
                 # if str(e) == "{'code': -32000, 'message': 'execution reverted: COLOSSEUM_AIRDROP_AMOUNT_EXCEEDS_LIMIT'}":

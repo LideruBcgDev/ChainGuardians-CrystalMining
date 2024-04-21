@@ -53,4 +53,4 @@ def maxAddressIndex():
     return max
 
 def airdropInterval():
-    return float(os.environ.get("airdropInterval", 0.3))
+    return float(os.environ.get("airdropInterval", 0.1))
