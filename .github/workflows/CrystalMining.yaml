@@ -11,7 +11,7 @@ jobs:
       mnemonic: ${{ secrets.mnemonic }}
       group: ${{ secrets.group || 1 }}
       startAddressIndex: ${{ secrets.startAddressIndex || 0 }}
-      maxAddressIndex: ${{ secrets.maxAddressIndex || 1 }}
+      maxAddressIndex: ${{ secrets.maxAddressIndex || 0 }}
       airdropInterval: 0.1
 
     steps:
